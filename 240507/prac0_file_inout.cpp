@@ -48,7 +48,7 @@ int main() {
 			// 벡터 v에 저장한 문자열을 write_file에 작성
 			for (int i = 0; i < 3; i++) {
 
-				write_file << v.back();
+				write_file << v.back() << endl;
 				v.pop_back();
 
 			}
