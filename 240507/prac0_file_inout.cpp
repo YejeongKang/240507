@@ -6,6 +6,7 @@
 using namespace std;
 
 int main() {
+	// while(getline(read_file1,line) // EOF(End of File)
 	while (1) {
 
 		// hello.txt에 있는 문자열을 저장할 벡터 선언
@@ -30,6 +31,8 @@ int main() {
 			}
 		}	
 		else break;
+		
+		read_file1.close();
 
 		// 'hello.txt의 문자열을 거꾸로 입력할 파일'을 담을 변수 선언
 		ofstream write_file("output.txt");
@@ -43,14 +46,21 @@ int main() {
 		}
 		else {
 			// 벡터 v에 저장한 문자열을 write_file에 작성
-			write_file << v[2] << endl << v[1] << endl << v[0] << endl;
+			for (int i = 0; i < 3; i++) {
+
+				write_file << v.back();
+				v.pop_back();
+
+			}
 		}
+
+		write_file.close();
 
 		// output.txt 파일을 담을 변수 선언
 		ifstream read_file2("output.txt");
 		
 		// output.txt 파일이 잘 열렸다면, 엔터를 기준으로 읽어서 출력
-		if (read_file1.is_open() == true) {
+		if (read_file2.is_open() == true) {
 			for (int i = 0; i < 3; i++) {
 
 				getline(read_file2, line2);
@@ -61,10 +71,7 @@ int main() {
 		}
 		else break;
 
-		// 파일 닫기
-		read_file1.close();
 		read_file2.close();
-		write_file.close();
 
 		// while문 탈출 야호 !
 		return 0;

@@ -18,7 +18,10 @@
     <ClCompile Include="240507.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="prac0.cpp">
+    <ClCompile Include="prac0_file_inout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prac1_membership_file.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
