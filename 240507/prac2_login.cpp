@@ -36,9 +36,7 @@ int main() {
 		str = name.append(" ");
 		str = str.append(pw);
 
-		cout << str << endl;
-		// member 파일의 고객정보를 하나씩 읽어오기
-
+		// member 파일의 고객정보를 한 줄씩 읽어오기
 		ifstream read_file("member.txt");
 
 		if (read_file.is_open() == false) {
