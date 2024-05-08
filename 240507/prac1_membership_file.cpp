@@ -19,6 +19,7 @@ int main() {
     vector<string> v_name, v_pw;
     size_t point, re_point;
 
+    // MEMBER 명의 회원 정보가 양식에 맞게 입력되었으면, 벡터에 저장
     while (cnt < MEMBER) {
         cout << MEMBER - cnt << "명의 회원에 대한 이름, 비밀번호를 순차적으로 입력하세요.(비밀번호는 6-17자 이내로 작성)" << endl;
 
@@ -39,7 +40,7 @@ int main() {
         // 입력 값 (공백 하나만 두고 입력했는지) 확인
         else
         {
-            re_point = str.find(" ", point);
+            re_point = str.find(" ", point + 1);
 
             if (re_point != string::npos) {
 
@@ -54,7 +55,10 @@ int main() {
 
                 // 공백 하나를 두고 입력했다면 비밀번호 자릿수 확인
                 if (pw.length() < 6 || pw.length() > 17) {
+
                     cout << "입력오류: 비밀번호는 6-17자 이내로 작성하세요." << endl;
+
+                    input_check = false;
                  }
                 // 공백 하나, 비밀번호 자릿수 조건을 모두 충족했을 때, true
                 else { 
@@ -62,12 +66,17 @@ int main() {
                 }
             }
         }
-        
-        // 벡터에 저장
-        v_name.push_back(name);
-        v_pw.push_back(pw);
+        if (input_check == true) {
 
-        cnt++;
+            // 벡터에 저장
+            v_name.push_back(name);
+            v_pw.push_back(pw);
+
+            cnt++;
+        }
+        else {
+            continue;
+        }
     }
 
     // 파일에 회원 정보 저장
@@ -85,8 +94,7 @@ int main() {
     else {
         cout << "파일을 열 수 없습니다." << endl;
 
-        // while문 탈출
-        cnt = 10;
+        return 0;
     }
 
     // 파일에서 회원 정보 출력
@@ -106,9 +114,8 @@ int main() {
 
         cout << "파일을 열 수 없습니다." << endl;
 
-        // while문 탈출
-        cnt = 10;
+        return 0;
     }
 
-    cnt = 10;
+    return 0;
 }
