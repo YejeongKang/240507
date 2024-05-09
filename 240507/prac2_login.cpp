@@ -1,3 +1,5 @@
+#include "membership.h"
+
 #include <fstream>
 #include <string>
 #include <iostream>
@@ -5,7 +7,7 @@
 
 using namespace std;
 
-int main() {
+void login() {
 	string name;
 	string pw;
 	string line;
@@ -41,7 +43,7 @@ int main() {
 
 		if (read_file.is_open() == false) {
 			cout << "파일을 열 수 없습니다.";
-			return 0;
+			break;
 		}
 		else {
 			while (getline(read_file, line)) {
@@ -62,5 +64,5 @@ int main() {
 		}
 		read_file.close();
 	}
-	return 0;
+
 }

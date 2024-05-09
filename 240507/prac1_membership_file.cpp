@@ -3,19 +3,21 @@
 //비밀번호는 6자리 이상 ~18자리 미만으로 적도록
 //정상적으로 입력 받았을 경우에만 파일에 쓰기!
 
+#include "membership.h"
+
 #include <fstream>
 #include <string>
 #include <iostream>
 #include <vector>
 
 using namespace std;
+using namespace inputData;
 
 #define MEMBER 3
 
 int main() {
     int cnt = 0;
     string str, name, pw;
-    bool input_check;
     vector<string> v_name, v_pw;
     size_t point, re_point;
 
@@ -27,46 +29,7 @@ int main() {
 
         getline(cin, str);
 
-        // 입력 값 (공백 하나 이상 두고 입력했는지) 확인
-        point = str.find(" ");
-
-        if (point == string::npos) {
-
-            cout << "입력오류: 이름과 비밀번호를 공백을 두고 입력하세요." << endl;
-
-            input_check = false;
-        }
-
-        // 입력 값 (공백 하나만 두고 입력했는지) 확인
-        else
-        {
-            re_point = str.find(" ", point + 1);
-
-            if (re_point != string::npos) {
-
-                cout << "입력오류: 이름과 비밀번호 외의 정보는 입력할 수 없습니다." << endl;
-
-                input_check = false;
-            }
-            else {
-                // 이름과 비밀번호 추출
-                name = str.substr(0, point);
-                pw = str.substr(point + 1);
-
-                // 공백 하나를 두고 입력했다면 비밀번호 자릿수 확인
-                if (pw.length() < 6 || pw.length() > 17) {
-
-                    cout << "입력오류: 비밀번호는 6-17자 이내로 작성하세요." << endl;
-
-                    input_check = false;
-                 }
-                // 공백 하나, 비밀번호 자릿수 조건을 모두 충족했을 때, true
-                else { 
-                    input_check = true;
-                }
-            }
-        }
-        if (input_check == true) {
+        if (join_check(str) == true) {
 
             // 벡터에 저장
             v_name.push_back(name);

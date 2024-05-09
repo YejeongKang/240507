@@ -27,5 +27,19 @@
     <ClCompile Include="prac2_login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="prac_ex_join.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="membership.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prac3_tel_save.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="membership.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
